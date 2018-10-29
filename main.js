@@ -1,6 +1,9 @@
 const cron = require("node-cron");
 const { reply } = require("./src/reply");
 
+/** 起動確認 */
+console.log("Schedule execute...");
+
 /** 午前のタスク */
 cron.schedule("00 00 9 * * *", () => {
 	console.log(moment().format("YYYY/MM/DD HH:mm:ss"));
