@@ -1,7 +1,7 @@
 const Twitter = require("twitter");
 const moment = require("moment");
-moment.locale("ja");
 
+moment.locale("ja");
 const replyMessage = `
   @yuyas310
   ${moment().format("YYYY/MM/DD HH:mm:ss")}
@@ -15,14 +15,20 @@ const client = new Twitter({
 	access_token_secret: process.env.TW_ACCESS_TOKEN_SECRET
 });
 
-client.post(
-	"statuses/update",
-	{ status: replyMessage },
-	(error, tweet, response) => {
-		if (!error) {
-			console.log(tweet, response);
-		} else {
-			console.log(error);
+const reply = () => {
+	client.post(
+		"statuses/update",
+		{ status: replyMessage },
+		(error, tweet, response) => {
+			if (!error) {
+				console.log(tweet, response);
+			} else {
+				console.log(error);
+			}
 		}
-	}
-);
+	);
+};
+
+module.exports = {
+	reply
+};
