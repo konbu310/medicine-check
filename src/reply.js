@@ -1,7 +1,7 @@
 const Twitter = require("twitter");
 const moment = require("moment");
-
 moment.locale("ja");
+
 const replyMessage = `
   @yuyas310
   ${moment().format("YYYY/MM/DD HH:mm:ss")}
