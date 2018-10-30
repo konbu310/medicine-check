@@ -10,14 +10,14 @@ console.log("Schedule execute...");
 cron.schedule("00 00 9 * * *", async () => {
 	console.log(moment().format("YYYY/MM/DD HH:mm:ss"));
 	const result = await isTakeMedicine("AM");
-	result ? console.log("ちゃんと飲んでる") : reply();
+	(await result) ? await console.log("ちゃんと飲んでる") : await reply();
 });
 
 /** 午後のタスク */
 cron.schedule("00 00 23 * * *", async () => {
 	console.log(moment().format("YYYY/MM/DD HH:mm:ss"));
 	const result = await isTakeMedicine("PM");
-	resutl ? console.log("ちゃんと飲んでる") : reply();
+	(await resutl) ? await console.log("ちゃんと飲んでる") : await reply();
 });
 
 /** デバッグ用のタスク */

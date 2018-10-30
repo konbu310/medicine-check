@@ -15,8 +15,8 @@ const client = new Twitter({
 	access_token_secret: process.env.TW_ACCESS_TOKEN_SECRET
 });
 
-const reply = () => {
-	client.post(
+const reply = async () => {
+	await client.post(
 		"statuses/update",
 		{ status: replyMessage },
 		(error, tweet, response) => {
