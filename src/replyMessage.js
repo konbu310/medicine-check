@@ -9,7 +9,7 @@ const client = new Twitter({
 	access_token_secret: process.env.TW_ACCESS_TOKEN_SECRET
 });
 
-const reply = async mes => {
+const replyMessage = async mes => {
 	await client.post(
 		"statuses/update",
 		{ status: mes },
@@ -24,5 +24,5 @@ const reply = async mes => {
 };
 
 module.exports = {
-	reply
+	replyMessage
 };
