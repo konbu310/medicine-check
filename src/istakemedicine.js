@@ -1,8 +1,8 @@
 const moment = require("moment");
-
-const { getFileContents } = require("./getfilecontents");
-
 moment.locale("ja");
+
+const { getFileContents } = require("./getFileContents");
+
 const TODAY_DATE = moment().format("YYYY/MM/DD");
 const AM_MATCH = new RegExp(TODAY_DATE + " [0-9]:d*");
 const PM_MATCH = new RegExp(TODAY_DATE + " [0-9][0-9]:d*");

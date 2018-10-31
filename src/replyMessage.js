@@ -2,12 +2,6 @@ const Twitter = require("twitter");
 const moment = require("moment");
 moment.locale("ja");
 
-const replyMessage = `
-  @yuyas310
-  ${moment().format("YYYY/MM/DD HH:mm:ss")}
-	おまえ薬のんでなくね？
-`;
-
 const client = new Twitter({
 	consumer_key: process.env.TW_CONSUMER_KEY,
 	consumer_secret: process.env.TW_CONSUMER_SECRET,
@@ -15,10 +9,10 @@ const client = new Twitter({
 	access_token_secret: process.env.TW_ACCESS_TOKEN_SECRET
 });
 
-const reply = async () => {
+const reply = async mes => {
 	await client.post(
 		"statuses/update",
-		{ status: replyMessage },
+		{ status: mes },
 		(error, tweet, response) => {
 			if (!error) {
 				console.log(tweet, response);
